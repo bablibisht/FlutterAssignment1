@@ -1,18 +1,15 @@
 class TodoList {
-  List<Todo> todos;
+  List<Todo> todosList;
 
-  TodoList({
-    this.todos,
-  });
+  TodoList({this.todosList});
 
+  //named constructor
   factory TodoList.fromJson(List<dynamic> parsedJson) {
 
-    List<Todo> todos = new List<Todo>();
-    todos = parsedJson.map((i)=>Todo.fromJson(i)).toList();
+    List<Todo> todosList = new List<Todo>();
+    todosList = parsedJson.map((i)=>Todo.fromJson(i)).toList();
 
-    return new TodoList(
-        todos: todos
-    );
+    return new TodoList(todosList: todosList);
   }
 }
 

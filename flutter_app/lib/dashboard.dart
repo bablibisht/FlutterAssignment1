@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterapp/model/todo.dart';
-import 'package:flutterapp/tododetail.dart';
+import 'file:///C:/Users/bablibisht/Desktop/FlutterProjects/test/ExerciseLogin/flutter_app/lib/view/tododetail.dart';
 import 'package:http/http.dart' as http;
 
 class Dashboard extends StatefulWidget{

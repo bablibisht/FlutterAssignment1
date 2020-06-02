@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutterapp/bloc/todo_bloc.dart';
+import 'file:///C:/Users/bablibisht/Desktop/FlutterProjects/test/ExerciseLogin/flutter_app/lib/view/dashboard_bloc.dart';
 import 'package:flutterapp/dashboard.dart';
-import 'package:flutterapp/loginbloc.dart';
+import 'file:///C:/Users/bablibisht/Desktop/FlutterProjects/test/ExerciseLogin/flutter_app/lib/bloc/loginbloc.dart';
+import 'package:flutterapp/model/todo.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -50,7 +54,8 @@ class _LoginState extends State<LoginScreen> {
                 decoration: InputDecoration(
                     hintText: 'Enter password',
                     labelText: 'Password',
-                    errorText: snapshot.error),
+                    errorText: snapshot.error,
+                ),
                 onChanged: _loginBloc.passwordChanged,
               ),
             ),
@@ -81,8 +86,19 @@ class _LoginState extends State<LoginScreen> {
   }
 
   void navigateToDashboard(BuildContext context) {
-    Navigator.of(context).push(MaterialPageRoute(
-      builder: (context) => Dashboard(),
-    ));
+   /* Navigator.of(context).push(MaterialPageRoute(
+      builder: (context) => DashboardBloc(),
+    ));*/
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) => BlocProvider.value(
+          value: BlocProvider.of<TodoBloc>(context),
+          child: DashboardBloc(),
+        ),
+      ),
+    );
+
+
+
   }
 }
